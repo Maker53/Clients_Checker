@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85D63D2F2806F99B00576407 /* SetupClientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D63D2E2806F99B00576407 /* SetupClientListViewController.swift */; };
+		85D63D31280723B200576407 /* ClientListViewController + UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D63D30280723B200576407 /* ClientListViewController + UITableViewDataSource.swift */; };
+		85D63D33280723C300576407 /* ClientListViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D63D32280723C300576407 /* ClientListViewController + UITableViewDelegate.swift */; };
 		85DE0C1D2806F1590030A77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE0C1C2806F1590030A77F /* AppDelegate.swift */; };
 		85DE0C212806F1590030A77F /* ClientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE0C202806F1590030A77F /* ClientListViewController.swift */; };
 		85DE0C262806F15E0030A77F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85DE0C252806F15E0030A77F /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85D63D2E2806F99B00576407 /* SetupClientListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupClientListViewController.swift; sourceTree = "<group>"; };
+		85D63D30280723B200576407 /* ClientListViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		85D63D32280723C300576407 /* ClientListViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		85DE0C192806F1590030A77F /* Check_Clients.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Check_Clients.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DE0C1C2806F1590030A77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DE0C202806F1590030A77F /* ClientListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientListViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +102,9 @@
 		85D63D2D2806F90700576407 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				85D63D2E2806F99B00576407 /* SetupClientListViewController.swift */,
+				85D63D30280723B200576407 /* ClientListViewController + UITableViewDataSource.swift */,
+				85D63D32280723C300576407 /* ClientListViewController + UITableViewDelegate.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85D63D2F2806F99B00576407 /* SetupClientListViewController.swift in Sources */,
 				85DE0C212806F1590030A77F /* ClientListViewController.swift in Sources */,
 				85DE0C1D2806F1590030A77F /* AppDelegate.swift in Sources */,
 			);

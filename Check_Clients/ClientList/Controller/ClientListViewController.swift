@@ -8,10 +8,12 @@
 import UIKit
 
 class ClientListViewController: UIViewController {
+    
+    lazy var tableView = UITableView(frame: .zero, style: .plain)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemTeal
+        setupUI()
     }
 }
