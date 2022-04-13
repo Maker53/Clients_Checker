@@ -33,6 +33,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85D63D262806F86500576407 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				85D63D2A2806F8DA00576407 /* View */,
+				85D63D2B2806F8DF00576407 /* Controller */,
+				85D63D272806F87D00576407 /* Supporting files */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		85D63D272806F87D00576407 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				85D63D292806F89E00576407 /* Resources */,
+				85DE0C2A2806F15E0030A77F /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		85D63D282806F89200576407 /* ClientList */ = {
+			isa = PBXGroup;
+			children = (
+				85D63D2C2806F8FD00576407 /* Controller */,
+			);
+			path = ClientList;
+			sourceTree = "<group>";
+		};
+		85D63D292806F89E00576407 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				85DE0C252806F15E0030A77F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		85D63D2A2806F8DA00576407 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				85DE0C272806F15E0030A77F /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		85D63D2B2806F8DF00576407 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				85DE0C1C2806F1590030A77F /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		85D63D2C2806F8FD00576407 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				85D63D2D2806F90700576407 /* Extensions */,
+				85DE0C202806F1590030A77F /* ClientListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		85D63D2D2806F90700576407 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		85DE0C102806F1590030A77F = {
 			isa = PBXGroup;
 			children = (
@@ -52,11 +119,8 @@
 		85DE0C1B2806F1590030A77F /* Check_Clients */ = {
 			isa = PBXGroup;
 			children = (
-				85DE0C1C2806F1590030A77F /* AppDelegate.swift */,
-				85DE0C202806F1590030A77F /* ClientListViewController.swift */,
-				85DE0C252806F15E0030A77F /* Assets.xcassets */,
-				85DE0C272806F15E0030A77F /* LaunchScreen.storyboard */,
-				85DE0C2A2806F15E0030A77F /* Info.plist */,
+				85D63D262806F86500576407 /* Application */,
+				85D63D282806F89200576407 /* ClientList */,
 			);
 			path = Check_Clients;
 			sourceTree = "<group>";
@@ -273,7 +337,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T94XUBZ99A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Check_Clients/Info.plist;
+				INFOPLIST_FILE = "Check_Clients/Application/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -302,7 +366,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T94XUBZ99A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Check_Clients/Info.plist;
+				INFOPLIST_FILE = "Check_Clients/Application/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
