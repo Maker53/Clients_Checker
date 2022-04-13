@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let clientListVC = ClientListViewController()
         
-        window?.rootViewController = clientListVC
+        window?.rootViewController = UINavigationController(rootViewController: clientListVC)
         window?.makeKeyAndVisible()
         
         return true
