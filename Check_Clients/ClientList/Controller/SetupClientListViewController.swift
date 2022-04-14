@@ -9,11 +9,18 @@ import UIKit
 
 extension ClientListViewController {
     func setupUI() {
+        title = "Client list"
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        // TODO: Когда буду наводить красоту, не забыть подобрать размер ячейки и выставить
+        // TODO: estimatedRowHeight равный высоте ячейки
+        tableView.rowHeight = 50
+        tableView.estimatedRowHeight = 50
+        
+        tableView.register(ClientCell.self, forCellReuseIdentifier: ClientCell.identifier)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
