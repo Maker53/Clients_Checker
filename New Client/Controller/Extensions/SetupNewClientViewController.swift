@@ -20,6 +20,7 @@ extension NewClientViewController {
             target: self,
             action: #selector(saveBarButtonTapped)
         )
+        saveBarButton.isEnabled = false
         
         title = "New Client"
         view.backgroundColor = .systemBackground
@@ -52,6 +53,10 @@ extension NewClientViewController {
         visitTimeTF.borderStyle = .roundedRect
         visitTimeTF.returnKeyType = .done
         visitTimeTF.delegate = self
+        
+        [clientNameTF, locationTF, visitTimeTF].forEach {
+            $0.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        }
         
         view.addSubview(stackView)
         
