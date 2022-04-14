@@ -9,7 +9,9 @@ import UIKit
 
 class ClientListViewController: UIViewController {
     
+    // MARK: - Public Properties
     lazy var tableView = UITableView(frame: .zero, style: .plain)
+    let clients = Client.mock
 
     override func viewDidLoad() {
         super.viewDidLoad()
