@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048492FA7440221D539E0B38 /* Pods_Check_Clients.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFBC032C70742969D309E78 /* Pods_Check_Clients.framework */; };
 		858D38FD28073FDD00A70D26 /* ClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D38FC28073FDD00A70D26 /* ClientCell.swift */; };
 		858D39002807F56000A70D26 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D38FF2807F56000A70D26 /* Client.swift */; };
 		858D3904280806F900A70D26 /* NewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D3903280806F900A70D26 /* NewClientViewController.swift */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23E88674FC3C5E8D86243374 /* Pods-Check_Clients.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check_Clients.release.xcconfig"; path = "Target Support Files/Pods-Check_Clients/Pods-Check_Clients.release.xcconfig"; sourceTree = "<group>"; };
+		857963E528085F6A00AE4F98 /* Check_Clients.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Check_Clients.app; path = "/Users/Stanislav/Developer/Check_Clients/build/Debug-iphoneos/Check_Clients.app"; sourceTree = "<absolute>"; };
 		858D38FC28073FDD00A70D26 /* ClientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCell.swift; sourceTree = "<group>"; };
 		858D38FF2807F56000A70D26 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		858D3903280806F900A70D26 /* NewClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClientViewController.swift; sourceTree = "<group>"; };
@@ -32,12 +35,13 @@
 		85D63D2E2806F99B00576407 /* SetupClientListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupClientListViewController.swift; sourceTree = "<group>"; };
 		85D63D30280723B200576407 /* ClientListViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		85D63D32280723C300576407 /* ClientListViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
-		85DE0C192806F1590030A77F /* Check_Clients.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Check_Clients.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DE0C1C2806F1590030A77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DE0C202806F1590030A77F /* ClientListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientListViewController.swift; sourceTree = "<group>"; };
 		85DE0C252806F15E0030A77F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85DE0C282806F15E0030A77F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85DE0C2A2806F15E0030A77F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA0D0E15A99512278B9A0578 /* Pods-Check_Clients.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check_Clients.debug.xcconfig"; path = "Target Support Files/Pods-Check_Clients/Pods-Check_Clients.debug.xcconfig"; sourceTree = "<group>"; };
+		EBFBC032C70742969D309E78 /* Pods_Check_Clients.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Check_Clients.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,12 +49,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048492FA7440221D539E0B38 /* Pods_Check_Clients.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A2F635D2A1483F22806401C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA0D0E15A99512278B9A0578 /* Pods-Check_Clients.debug.xcconfig */,
+				23E88674FC3C5E8D86243374 /* Pods-Check_Clients.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		708986F10A4DC1F9992AFC0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBFBC032C70742969D309E78 /* Pods_Check_Clients.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		858D38FB28073FBB00A70D26 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,17 +193,9 @@
 			isa = PBXGroup;
 			children = (
 				85DE0C1B2806F1590030A77F /* Check_Clients */,
-				858D3901280806C900A70D26 /* New Client */,
-				85DE0C1A2806F1590030A77F /* Products */,
+				2A2F635D2A1483F22806401C /* Pods */,
+				708986F10A4DC1F9992AFC0F /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		85DE0C1A2806F1590030A77F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				85DE0C192806F1590030A77F /* Check_Clients.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		85DE0C1B2806F1590030A77F /* Check_Clients */ = {
@@ -188,6 +203,7 @@
 			children = (
 				85D63D262806F86500576407 /* Application */,
 				85D63D282806F89200576407 /* ClientList */,
+				858D3901280806C900A70D26 /* New Client */,
 			);
 			path = Check_Clients;
 			sourceTree = "<group>";
@@ -199,9 +215,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85DE0C2D2806F15E0030A77F /* Build configuration list for PBXNativeTarget "Check_Clients" */;
 			buildPhases = (
+				9C5A2B289AE676049B6E22D0 /* [CP] Check Pods Manifest.lock */,
 				85DE0C152806F1590030A77F /* Sources */,
 				85DE0C162806F1590030A77F /* Frameworks */,
 				85DE0C172806F1590030A77F /* Resources */,
+				ACF07D2B4FF6F96B57DB427F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,7 +227,7 @@
 			);
 			name = Check_Clients;
 			productName = Check_Clients;
-			productReference = 85DE0C192806F1590030A77F /* Check_Clients.app */;
+			productReference = 857963E528085F6A00AE4F98 /* Check_Clients.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -236,7 +254,7 @@
 				Base,
 			);
 			mainGroup = 85DE0C102806F1590030A77F;
-			productRefGroup = 85DE0C1A2806F1590030A77F /* Products */;
+			productRefGroup = 85DE0C102806F1590030A77F;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -256,6 +274,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9C5A2B289AE676049B6E22D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Check_Clients-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACF07D2B4FF6F96B57DB427F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Check_Clients/Pods-Check_Clients-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Check_Clients/Pods-Check_Clients-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Check_Clients/Pods-Check_Clients-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		85DE0C152806F1590030A77F /* Sources */ = {
@@ -406,6 +466,7 @@
 		};
 		85DE0C2E2806F15E0030A77F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA0D0E15A99512278B9A0578 /* Pods-Check_Clients.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -435,6 +496,7 @@
 		};
 		85DE0C2F2806F15E0030A77F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23E88674FC3C5E8D86243374 /* Pods-Check_Clients.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
