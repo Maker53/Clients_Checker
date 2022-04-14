@@ -9,11 +9,16 @@ import UIKit
 
 extension ClientListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        clients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ClientCell.identifier, for: indexPath)
+        guard let cell = cell as? ClientCell else { return cell }
+        
+        cell.clientName.text = clients[indexPath.row].clientName
+        cell.location.text = clients[indexPath.row].location
+        cell.visitTime.text = clients[indexPath.row].visitTime.description
         
         return cell
     }
