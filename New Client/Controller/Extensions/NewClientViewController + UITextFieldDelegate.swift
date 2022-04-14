@@ -8,5 +8,17 @@
 import UIKit
 
 extension NewClientViewController: UITextFieldDelegate {
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case clientNameTF:
+            locationTF.becomeFirstResponder()
+            return true
+        case locationTF:
+            visitTimeTF.becomeFirstResponder()
+            return true
+        default:
+            textField.resignFirstResponder()
+            return true
+        }
+    }
 }
