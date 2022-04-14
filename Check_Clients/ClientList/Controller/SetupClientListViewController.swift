@@ -11,6 +11,12 @@ extension ClientListViewController {
     func setupUI() {
         title = "Client list"
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(addClientButtonTapped)
+        )
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false

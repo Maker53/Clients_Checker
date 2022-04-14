@@ -18,4 +18,8 @@ class ClientListViewController: UIViewController {
         
         setupUI()
     }
+    
+    @objc func addClientButtonTapped() {
+        
+    }
 }
