@@ -20,6 +20,8 @@ class ClientListViewController: UIViewController {
     }
     
     @objc func addClientButtonTapped() {
-        
+        let newClientVC = NewClientViewController()
+        let navigationVC = UINavigationController(rootViewController: newClientVC)
+        present(navigationVC, animated: true)
     }
 }
