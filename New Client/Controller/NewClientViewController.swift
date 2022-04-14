@@ -37,4 +37,20 @@ class NewClientViewController: UIViewController {
     @objc func saveBarButtonTapped() {
         
     }
+    
+    // MARK: - Text Fields Action
+    @objc func textFieldChanged(_ sender: UITextField) {
+        guard
+            let inputName = clientNameTF.text,
+            let inputLocation = locationTF.text,
+            let inputTime = visitTimeTF.text
+        else { return }
+        
+        if inputName.isEmpty || inputLocation.isEmpty || inputTime.isEmpty {
+            saveBarButton.isEnabled = false
+            return
+        }
+        
+        saveBarButton.isEnabled = true
+    }
 }
