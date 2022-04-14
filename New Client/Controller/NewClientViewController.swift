@@ -9,4 +9,17 @@ import UIKit
 
 class NewClientViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupUI()
+    }
+    
+    @objc func cancelBarButtonTapped() {
+        dismiss(animated: true)
+    }
+    
+    @objc func saveBarButtonTapped() {
+        
+    }
 }
