@@ -9,13 +9,13 @@ import UIKit
 
 extension NewClientViewController {
     func setupUI() {
-        let cancelBarButton = UIBarButtonItem(
+        cancelBarButton = UIBarButtonItem(
             barButtonSystemItem: .cancel,
             target: self,
             action: #selector(cancelBarButtonTapped)
         )
         
-        let saveBarButton = UIBarButtonItem(
+        saveBarButton = UIBarButtonItem(
             barButtonSystemItem: .save,
             target: self,
             action: #selector(saveBarButtonTapped)
@@ -30,9 +30,6 @@ extension NewClientViewController {
     }
     
     private func setupTextFields() {
-        let clientNameTF = UITextField()
-        let locationTF = UITextField()
-        let visitTimeTF = UITextField()
         let stackView = UIStackView(arrangedSubviews: [clientNameTF, locationTF, visitTimeTF])
         
         stackView.axis = .vertical
@@ -43,12 +40,17 @@ extension NewClientViewController {
         
         clientNameTF.placeholder = "Client name"
         clientNameTF.borderStyle = .roundedRect
+        clientNameTF.returnKeyType = .next
         clientNameTF.delegate = self
+        
         locationTF.placeholder = "Location"
         locationTF.borderStyle = .roundedRect
+        locationTF.returnKeyType = .next
         locationTF.delegate = self
+        
         visitTimeTF.placeholder = "Visit time"
         visitTimeTF.borderStyle = .roundedRect
+        visitTimeTF.returnKeyType = .done
         visitTimeTF.delegate = self
         
         view.addSubview(stackView)
