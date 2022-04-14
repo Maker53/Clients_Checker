@@ -11,7 +11,7 @@ class ClientListViewController: UIViewController {
     
     // MARK: - Public Properties
     lazy var tableView = UITableView(frame: .zero, style: .plain)
-    let clients = Client.mock
+    var clients = Client.mock
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,7 @@ class ClientListViewController: UIViewController {
     @objc func addClientButtonTapped() {
         let newClientVC = NewClientViewController()
         let navigationVC = UINavigationController(rootViewController: newClientVC)
+        newClientVC.delegate = self
         present(navigationVC, animated: true)
     }
 }

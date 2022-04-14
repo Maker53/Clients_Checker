@@ -11,6 +11,7 @@ struct Client {
     var clientName: String
     var location: String
     var visitTime: Date
+    // TODO: Добавить свойство с типом бул, которое будет отображать оконченные сессии 
     
     static let mock = [
         Client(clientName: "Alyona", location: "Saint-Petersburg", visitTime: Date()),

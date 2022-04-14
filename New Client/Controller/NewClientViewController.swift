@@ -9,12 +9,17 @@ import UIKit
 
 class NewClientViewController: UIViewController {
     
-    // MARK: - Public Properties
+    // MARK: - UI Properties
     lazy var cancelBarButton = UIBarButtonItem()
     lazy var saveBarButton = UIBarButtonItem()
     lazy var clientNameTF = UITextField()
     lazy var locationTF = UITextField()
+    // TODO: Поменять на DatePicker
     lazy var visitTimeTF = UITextField()
+    
+    // MARK: - Public Properties
+    var newClient: Client?
+    var delegate: NewClientViewControllerDelegate!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -35,7 +40,14 @@ class NewClientViewController: UIViewController {
     }
     
     @objc func saveBarButtonTapped() {
+        newClient = Client(
+            clientName: clientNameTF.text!,
+            location: locationTF.text!,
+            visitTime: Date()
+        )
         
+        delegate.getClient(client: newClient!)
+        dismiss(animated: true)
     }
     
     // MARK: - Text Fields Action
