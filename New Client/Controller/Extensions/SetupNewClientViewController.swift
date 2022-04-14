@@ -43,10 +43,13 @@ extension NewClientViewController {
         
         clientNameTF.placeholder = "Client name"
         clientNameTF.borderStyle = .roundedRect
+        clientNameTF.delegate = self
         locationTF.placeholder = "Location"
         locationTF.borderStyle = .roundedRect
+        locationTF.delegate = self
         visitTimeTF.placeholder = "Visit time"
         visitTimeTF.borderStyle = .roundedRect
+        visitTimeTF.delegate = self
         
         view.addSubview(stackView)
         

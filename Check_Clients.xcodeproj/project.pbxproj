@@ -11,6 +11,7 @@
 		858D39002807F56000A70D26 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D38FF2807F56000A70D26 /* Client.swift */; };
 		858D3904280806F900A70D26 /* NewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D3903280806F900A70D26 /* NewClientViewController.swift */; };
 		858D3907280808C600A70D26 /* SetupNewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D3906280808C600A70D26 /* SetupNewClientViewController.swift */; };
+		858D3909280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D3908280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift */; };
 		85D63D2F2806F99B00576407 /* SetupClientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D63D2E2806F99B00576407 /* SetupClientListViewController.swift */; };
 		85D63D31280723B200576407 /* ClientListViewController + UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D63D30280723B200576407 /* ClientListViewController + UITableViewDataSource.swift */; };
 		85D63D33280723C300576407 /* ClientListViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D63D32280723C300576407 /* ClientListViewController + UITableViewDelegate.swift */; };
@@ -25,6 +26,7 @@
 		858D38FF2807F56000A70D26 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		858D3903280806F900A70D26 /* NewClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClientViewController.swift; sourceTree = "<group>"; };
 		858D3906280808C600A70D26 /* SetupNewClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNewClientViewController.swift; sourceTree = "<group>"; };
+		858D3908280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewClientViewController + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		85D63D2E2806F99B00576407 /* SetupClientListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupClientListViewController.swift; sourceTree = "<group>"; };
 		85D63D30280723B200576407 /* ClientListViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		85D63D32280723C300576407 /* ClientListViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				858D3906280808C600A70D26 /* SetupNewClientViewController.swift */,
+				858D3908280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				858D3904280806F900A70D26 /* NewClientViewController.swift in Sources */,
 				85D63D2F2806F99B00576407 /* SetupClientListViewController.swift in Sources */,
 				858D39002807F56000A70D26 /* Client.swift in Sources */,
+				858D3909280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift in Sources */,
 				85DE0C212806F1590030A77F /* ClientListViewController.swift in Sources */,
 				858D38FD28073FDD00A70D26 /* ClientCell.swift in Sources */,
 				858D3907280808C600A70D26 /* SetupNewClientViewController.swift in Sources */,
