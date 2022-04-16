@@ -5,12 +5,12 @@
 //  Created by Станислав on 14.04.2022.
 //
 
-protocol NewClientViewControllerDelegate: AnyObject {
-    func addClient()
+protocol ReloadClientListDelegate: AnyObject {
+    func reloadClientList()
 }
 
-extension ClientListViewController: NewClientViewControllerDelegate {
-    func addClient() {
+extension ClientListViewController: ReloadClientListDelegate {
+    func reloadClientList() {
         // TODO: Заменит на метод, который обновляет по индексу добавленной ячейки,
         // TODO: если такое возможно
         tableView.reloadData()
