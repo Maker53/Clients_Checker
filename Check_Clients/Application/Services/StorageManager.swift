@@ -7,6 +7,12 @@
 
 import RealmSwift
 
+let realm = try! Realm()
+
 class StorageManager {
-    
+    static func save(_ client: Client) {
+        try! realm.write {
+            realm.add(client)
+        }
+    }
 }
