@@ -9,7 +9,7 @@ import UIKit
 
 extension ClientListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        clients.count
+        clients.isEmpty ? 0 : clients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

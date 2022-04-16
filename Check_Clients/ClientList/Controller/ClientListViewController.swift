@@ -5,18 +5,19 @@
 //  Created by Станислав on 13.04.2022.
 //
 
-import UIKit
+import RealmSwift
 
 class ClientListViewController: UIViewController {
     
     // MARK: - Public Properties
     lazy var tableView = UITableView(frame: .zero, style: .plain)
-    var clients = Client.mock
+    var clients: Results<Client>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        clients = realm.objects(Client.self)
     }
     
     @objc func addClientButtonTapped() {
