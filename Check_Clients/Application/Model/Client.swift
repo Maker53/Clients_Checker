@@ -13,7 +13,8 @@ class Client: Object {
     @Persisted var visitTime: Date
     // TODO: Добавить свойство с типом бул, которое будет отображать оконченные сессии
     
-    init(clientName: String, location: String, visitTime: Date) {
+    convenience init(clientName: String, location: String, visitTime: Date) {
+        self.init()
         self.clientName = clientName
         self.location = location
         self.visitTime = visitTime
