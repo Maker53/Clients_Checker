@@ -11,7 +11,7 @@ class Client: Object {
     @Persisted var clientName: String
     @Persisted var location: String
     @Persisted var visitTime: Date
-    // TODO: Добавить свойство с типом бул, которое будет отображать оконченные сессии
+    @Persisted var isDone = false
     
     convenience init(clientName: String, location: String, visitTime: Date) {
         self.init()
