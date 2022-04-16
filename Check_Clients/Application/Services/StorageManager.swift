@@ -16,7 +16,7 @@ class StorageManager {
         }
     }
     
-    static func deleteObject(_ client: Client) {
+    static func delete(_ client: Client) {
         try! realm.write {
             realm.delete(client)
         }
