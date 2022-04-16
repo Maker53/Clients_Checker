@@ -18,10 +18,4 @@ class Client: Object {
         self.location = location
         self.visitTime = visitTime
     }
-    
-    override init() {
-        self.clientName = ""
-        self.location = ""
-        self.visitTime = Date()
-    }
 }
