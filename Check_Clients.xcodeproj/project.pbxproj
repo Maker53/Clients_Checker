@@ -14,6 +14,7 @@
 		858D3907280808C600A70D26 /* SetupNewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D3906280808C600A70D26 /* SetupNewClientViewController.swift */; };
 		858D3909280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D3908280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift */; };
 		858D390B2808434D00A70D26 /* ClientListViewController + NewClientViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D390A2808434D00A70D26 /* ClientListViewController + NewClientViewControllerDelegate.swift */; };
+		85ACCB4F280A85CD00E5E746 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACCB4E280A85CD00E5E746 /* StorageManager.swift */; };
 		85D63D2F2806F99B00576407 /* SetupClientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D63D2E2806F99B00576407 /* SetupClientListViewController.swift */; };
 		85D63D31280723B200576407 /* ClientListViewController + UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D63D30280723B200576407 /* ClientListViewController + UITableViewDataSource.swift */; };
 		85D63D33280723C300576407 /* ClientListViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D63D32280723C300576407 /* ClientListViewController + UITableViewDelegate.swift */; };
@@ -25,13 +26,14 @@
 
 /* Begin PBXFileReference section */
 		23E88674FC3C5E8D86243374 /* Pods-Check_Clients.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check_Clients.release.xcconfig"; path = "Target Support Files/Pods-Check_Clients/Pods-Check_Clients.release.xcconfig"; sourceTree = "<group>"; };
-		857963E528085F6A00AE4F98 /* Check_Clients.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Check_Clients.app; path = "/Users/Stanislav/Developer/Check_Clients/build/Debug-iphoneos/Check_Clients.app"; sourceTree = "<absolute>"; };
 		858D38FC28073FDD00A70D26 /* ClientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCell.swift; sourceTree = "<group>"; };
 		858D38FF2807F56000A70D26 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		858D3903280806F900A70D26 /* NewClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClientViewController.swift; sourceTree = "<group>"; };
 		858D3906280808C600A70D26 /* SetupNewClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNewClientViewController.swift; sourceTree = "<group>"; };
 		858D3908280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewClientViewController + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		858D390A2808434D00A70D26 /* ClientListViewController + NewClientViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + NewClientViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		85ACCB4B280A82D300E5E746 /* Check_Clients.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Check_Clients.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85ACCB4E280A85CD00E5E746 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		85D63D2E2806F99B00576407 /* SetupClientListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupClientListViewController.swift; sourceTree = "<group>"; };
 		85D63D30280723B200576407 /* ClientListViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		85D63D32280723C300576407 /* ClientListViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
@@ -62,7 +64,6 @@
 				BA0D0E15A99512278B9A0578 /* Pods-Check_Clients.debug.xcconfig */,
 				23E88674FC3C5E8D86243374 /* Pods-Check_Clients.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -80,14 +81,6 @@
 				858D38FC28073FDD00A70D26 /* ClientCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		858D38FE2807F54D00A70D26 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				858D38FF2807F56000A70D26 /* Client.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		858D3901280806C900A70D26 /* New Client */ = {
@@ -116,11 +109,29 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		85ACCB4C280A859D00E5E746 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				858D38FF2807F56000A70D26 /* Client.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		85ACCB4D280A85AD00E5E746 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				85ACCB4E280A85CD00E5E746 /* StorageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		85D63D262806F86500576407 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				85ACCB4C280A859D00E5E746 /* Model */,
 				85D63D2A2806F8DA00576407 /* View */,
 				85D63D2B2806F8DF00576407 /* Controller */,
+				85ACCB4D280A85AD00E5E746 /* Services */,
 				85D63D272806F87D00576407 /* Supporting files */,
 			);
 			path = Application;
@@ -138,7 +149,6 @@
 		85D63D282806F89200576407 /* ClientList */ = {
 			isa = PBXGroup;
 			children = (
-				858D38FE2807F54D00A70D26 /* Model */,
 				858D38FB28073FBB00A70D26 /* View */,
 				85D63D2C2806F8FD00576407 /* Controller */,
 			);
@@ -195,6 +205,7 @@
 				85DE0C1B2806F1590030A77F /* Check_Clients */,
 				2A2F635D2A1483F22806401C /* Pods */,
 				708986F10A4DC1F9992AFC0F /* Frameworks */,
+				85ACCB4B280A82D300E5E746 /* Check_Clients.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -227,7 +238,7 @@
 			);
 			name = Check_Clients;
 			productName = Check_Clients;
-			productReference = 857963E528085F6A00AE4F98 /* Check_Clients.app */;
+			productReference = 85ACCB4B280A82D300E5E746 /* Check_Clients.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -325,6 +336,7 @@
 				858D3904280806F900A70D26 /* NewClientViewController.swift in Sources */,
 				85D63D2F2806F99B00576407 /* SetupClientListViewController.swift in Sources */,
 				858D390B2808434D00A70D26 /* ClientListViewController + NewClientViewControllerDelegate.swift in Sources */,
+				85ACCB4F280A85CD00E5E746 /* StorageManager.swift in Sources */,
 				858D39002807F56000A70D26 /* Client.swift in Sources */,
 				858D3909280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift in Sources */,
 				85DE0C212806F1590030A77F /* ClientListViewController.swift in Sources */,
