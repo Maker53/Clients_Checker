@@ -8,14 +8,13 @@
 import UIKit
 
 class ClientCell: UITableViewCell {
-    // MARK: - Identifier
-    static let identifier = String(describing: ClientCell.self)
-    
-    // MARK: - Public Properties
+    // MARK: - Public UI Properties
     lazy var checkMark: UILabel = {
         let label = UILabel()
         
+        label.isUserInteractionEnabled = true
         label.font = .systemFont(ofSize: 24)
+        label.addGestureRecognizer(tap)
         
         return label
     }()
@@ -23,24 +22,47 @@ class ClientCell: UITableViewCell {
     lazy var location = UILabel()
     lazy var visitTime = UILabel()
     
+    // MARK: - Public Properties
+    static let identifier = String(describing: ClientCell.self)
+    var doneTapAction: ((CGPoint) -> Void)?
+    
+    // MARK: - Private Properties
+    private lazy var tap = UITapGestureRecognizer(target: self, action: #selector(doneAction))
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        // TODO: Как бы от этого избавиться?
+        doneTapAction?(.zero)
         setupClientCell()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func configure(with client: Client) {
+        clientName.text = client.clientName
+        location.text = client.location
+        visitTime.text = client.visitTime.description
+        if client.isDone {
+            // TODO: Добавить кастомизацию ячейки, при разных ее состояниях (закончена встреча или нет)
+            checkMark.text = "✅"
+        } else {
+            checkMark.text = "⬜️"
+        }
+    }
+    
+    @objc private func doneAction() {
+        let tapLocation = tap.location(in: checkMark)
+        doneTapAction?(tapLocation)
+    }
 }
 
 // MARK: - Setup Client Cell
 extension ClientCell {
     private func setupClientCell() {
-        checkMark.text = "✅"
-        clientName.text = "Namdagsdggsdgsdsdgsdgsdgsdgse"
-        location.text = "Location"
-        visitTime.text = "18:00"
+        checkMark.text = "⬜️"
         
         let stackView = UIStackView(arrangedSubviews: [clientName, location])
         

@@ -16,9 +16,18 @@ extension ClientListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ClientCell.identifier, for: indexPath)
         guard let cell = cell as? ClientCell else { return cell }
         
-        cell.clientName.text = clients[indexPath.row].clientName
-        cell.location.text = clients[indexPath.row].location
-        cell.visitTime.text = clients[indexPath.row].visitTime.description
+        let client = clients[indexPath.row]
+        
+        cell.doneTapAction = { tapLocation in
+            DispatchQueue.main.async {
+                try! realm.write {
+                    client.isDone.toggle()
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+            }
+        }
+        
+        cell.configure(with: client)
         
         return cell
     }

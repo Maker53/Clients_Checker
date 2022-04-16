@@ -19,7 +19,7 @@ class NewClientViewController: UIViewController {
     
     // MARK: - Public Properties
     var newClient: Client!
-    weak var delegate: NewClientViewControllerDelegate!
+    weak var delegate: ReloadClientListDelegate!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class NewClientViewController: UIViewController {
         )
         // TODO: Use GCD or Operation with activity indicator 
         StorageManager.save(newClient)
-        delegate.addClient()
+        delegate.reloadClientList()
         dismiss(animated: true)
     }
     
