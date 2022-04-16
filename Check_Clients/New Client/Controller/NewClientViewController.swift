@@ -18,14 +18,14 @@ class NewClientViewController: UIViewController {
     lazy var visitTimeTF = UITextField()
     
     // MARK: - Public Properties
-    var newClient: Client?
-    var delegate: NewClientViewControllerDelegate!
+    var newClient: Client!
+    weak var delegate: NewClientViewControllerDelegate!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
+        setupUI()        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -45,8 +45,9 @@ class NewClientViewController: UIViewController {
             location: locationTF.text!,
             visitTime: Date()
         )
-        
-        delegate.getClient(client: newClient!)
+        // TODO: Use GCD or Operation with activity indicator 
+        StorageManager.save(newClient)
+        delegate.addClient()
         dismiss(animated: true)
     }
     
