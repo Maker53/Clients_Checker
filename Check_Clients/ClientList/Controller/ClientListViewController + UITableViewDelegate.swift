@@ -8,5 +8,11 @@
 import UIKit
 
 extension ClientListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let client = clients[indexPath.row]
+            StorageManager.delete(client)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 }
