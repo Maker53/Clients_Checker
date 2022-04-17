@@ -42,15 +42,12 @@ class ClientCell: UITableViewCell {
     }
     
     func configure(with client: Client) {
-        clientNameLabel.text = client.clientName
-        locationLabel.text = client.location
-        visitTimeLabel.text = client.visitTime.description
-        if client.isDone {
-            // TODO: Добавить кастомизацию ячейки, при разных ее состояниях (закончена встреча или нет)
-            checkMarkLabel.text = "✅"
-        } else {
-            checkMarkLabel.text = "⬜️"
-        }
+        let displayData = ClientListDisplayDataParser.shared.getDisplayData(from: client)
+        
+        clientNameLabel.text = displayData.clientName
+        locationLabel.text = displayData.location
+        visitTimeLabel.text = displayData.visitTime
+        checkMarkLabel.text = displayData.isDone
     }
     
     @objc private func doneAction() {
@@ -80,6 +77,7 @@ extension ClientCell {
         NSLayoutConstraint.activate([
             checkMarkLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             checkMarkLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            checkMarkLabel.widthAnchor.constraint(equalToConstant: 30),
             stackView.leadingAnchor.constraint(equalTo: checkMarkLabel.trailingAnchor, constant: 15),
             stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             stackView.trailingAnchor.constraint(equalTo: visitTimeLabel.leadingAnchor, constant: -15),
