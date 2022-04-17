@@ -50,7 +50,8 @@ extension NewClientViewController {
         locationTF.delegate = self
         
         visitTimeDatePicker.locale = Locale(identifier: "Ru_ru")
-        visitTimeDatePicker.datePickerMode = .time
+        visitTimeDatePicker.datePickerMode = .dateAndTime
+        visitTimeDatePicker.contentHorizontalAlignment = .left
         visitTimeDatePicker.translatesAutoresizingMaskIntoConstraints = false
         
         [clientNameTF, locationTF].forEach {
@@ -67,7 +68,7 @@ extension NewClientViewController {
             stackView.heightAnchor.constraint(equalToConstant: 115),
             visitTimeDatePicker.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 25),
             visitTimeDatePicker.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-            visitTimeDatePicker.widthAnchor.constraint(equalToConstant: 70)
+            visitTimeDatePicker.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
         ])
     }
 }
