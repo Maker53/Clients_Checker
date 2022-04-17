@@ -31,7 +31,7 @@ extension NewClientViewController {
     }
     
     private func setupTextFields() {
-        let stackView = UIStackView(arrangedSubviews: [clientNameTF, locationTF, visitTimeTF])
+        let stackView = UIStackView(arrangedSubviews: [clientNameTF, locationTF])
         
         stackView.axis = .vertical
         stackView.alignment = .fill
@@ -49,22 +49,25 @@ extension NewClientViewController {
         locationTF.returnKeyType = .next
         locationTF.delegate = self
         
-        visitTimeTF.placeholder = "Visit time"
-        visitTimeTF.borderStyle = .roundedRect
-        visitTimeTF.returnKeyType = .done
-        visitTimeTF.delegate = self
+        visitTimeDatePicker.locale = Locale(identifier: "Ru_ru")
+        visitTimeDatePicker.datePickerMode = .time
+        visitTimeDatePicker.translatesAutoresizingMaskIntoConstraints = false
         
-        [clientNameTF, locationTF, visitTimeTF].forEach {
+        [clientNameTF, locationTF].forEach {
             $0.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         }
         
         view.addSubview(stackView)
+        view.addSubview(visitTimeDatePicker)
         
         NSLayoutConstraint.activate([
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
-            stackView.heightAnchor.constraint(equalToConstant: 165)
+            stackView.heightAnchor.constraint(equalToConstant: 115),
+            visitTimeDatePicker.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 25),
+            visitTimeDatePicker.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            visitTimeDatePicker.widthAnchor.constraint(equalToConstant: 70)
         ])
     }
 }

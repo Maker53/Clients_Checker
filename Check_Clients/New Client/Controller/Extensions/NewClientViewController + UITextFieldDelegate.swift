@@ -13,9 +13,6 @@ extension NewClientViewController: UITextFieldDelegate {
         case clientNameTF:
             locationTF.becomeFirstResponder()
             return true
-        case locationTF:
-            visitTimeTF.becomeFirstResponder()
-            return true
         default:
             textField.resignFirstResponder()
             return true

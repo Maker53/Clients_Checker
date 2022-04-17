@@ -14,8 +14,7 @@ class NewClientViewController: UIViewController {
     lazy var saveBarButton = UIBarButtonItem()
     lazy var clientNameTF = UITextField()
     lazy var locationTF = UITextField()
-    // TODO: Поменять на DatePicker
-    lazy var visitTimeTF = UITextField()
+    lazy var visitTimeDatePicker = UIDatePicker()
     
     // MARK: - Public Properties
     var newClient: Client!
@@ -43,7 +42,7 @@ class NewClientViewController: UIViewController {
         newClient = Client(
             clientName: clientNameTF.text!,
             location: locationTF.text!,
-            visitTime: Date()
+            visitTime: visitTimeDatePicker.date
         )
         // TODO: Use GCD or Operation with activity indicator 
         StorageManager.save(newClient)
@@ -55,11 +54,10 @@ class NewClientViewController: UIViewController {
     @objc func textFieldChanged(_ sender: UITextField) {
         guard
             let inputName = clientNameTF.text,
-            let inputLocation = locationTF.text,
-            let inputTime = visitTimeTF.text
+            let inputLocation = locationTF.text
         else { return }
         
-        if inputName.isEmpty || inputLocation.isEmpty || inputTime.isEmpty {
+        if inputName.isEmpty || inputLocation.isEmpty {
             saveBarButton.isEnabled = false
             return
         }
