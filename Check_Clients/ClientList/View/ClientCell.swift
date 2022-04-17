@@ -9,7 +9,7 @@ import UIKit
 
 class ClientCell: UITableViewCell {
     // MARK: - Public UI Properties
-    lazy var checkMark: UILabel = {
+    lazy var checkMarkLabel: UILabel = {
         let label = UILabel()
         
         label.isUserInteractionEnabled = true
@@ -18,9 +18,9 @@ class ClientCell: UITableViewCell {
         
         return label
     }()
-    lazy var clientName = UILabel()
-    lazy var location = UILabel()
-    lazy var visitTime = UILabel()
+    lazy var clientNameLabel = UILabel()
+    lazy var locationLabel = UILabel()
+    lazy var visitTimeLabel = UILabel()
     
     // MARK: - Public Properties
     static let identifier = String(describing: ClientCell.self)
@@ -42,19 +42,19 @@ class ClientCell: UITableViewCell {
     }
     
     func configure(with client: Client) {
-        clientName.text = client.clientName
-        location.text = client.location
-        visitTime.text = client.visitTime.description
+        clientNameLabel.text = client.clientName
+        locationLabel.text = client.location
+        visitTimeLabel.text = client.visitTime.description
         if client.isDone {
             // TODO: Добавить кастомизацию ячейки, при разных ее состояниях (закончена встреча или нет)
-            checkMark.text = "✅"
+            checkMarkLabel.text = "✅"
         } else {
-            checkMark.text = "⬜️"
+            checkMarkLabel.text = "⬜️"
         }
     }
     
     @objc private func doneAction() {
-        let tapLocation = tap.location(in: checkMark)
+        let tapLocation = tap.location(in: checkMarkLabel)
         doneTapAction?(tapLocation)
     }
 }
@@ -62,32 +62,30 @@ class ClientCell: UITableViewCell {
 // MARK: - Setup Client Cell
 extension ClientCell {
     private func setupClientCell() {
-        checkMark.text = "⬜️"
-        
-        let stackView = UIStackView(arrangedSubviews: [clientName, location])
+        let stackView = UIStackView(arrangedSubviews: [clientNameLabel, locationLabel])
         
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fillEqually
         stackView.spacing = 5
         
-        checkMark.translatesAutoresizingMaskIntoConstraints = false
-        visitTime.translatesAutoresizingMaskIntoConstraints = false
+        checkMarkLabel.translatesAutoresizingMaskIntoConstraints = false
+        visitTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
-        contentView.addSubview(checkMark)
+        contentView.addSubview(checkMarkLabel)
         contentView.addSubview(stackView)
-        contentView.addSubview(visitTime)
+        contentView.addSubview(visitTimeLabel)
         
         NSLayoutConstraint.activate([
-            checkMark.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            checkMark.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalTo: checkMark.trailingAnchor, constant: 15),
+            checkMarkLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            checkMarkLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: checkMarkLabel.trailingAnchor, constant: 15),
             stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            stackView.trailingAnchor.constraint(equalTo: visitTime.leadingAnchor, constant: -15),
-            visitTime.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            visitTime.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            visitTime.widthAnchor.constraint(equalToConstant: 50)
+            stackView.trailingAnchor.constraint(equalTo: visitTimeLabel.leadingAnchor, constant: -15),
+            visitTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            visitTimeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            visitTimeLabel.widthAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
