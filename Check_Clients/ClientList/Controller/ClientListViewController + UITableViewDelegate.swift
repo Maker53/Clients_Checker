@@ -11,11 +11,7 @@ extension ClientListViewController: UITableViewDelegate {
     // TODO: Вызывать в методах UITableViewDelegate подготовленные данные из parser
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let allData = getData().allData else { return }
-            guard let visitTimes = getData().visitTimes else { return }
-            
-            guard let clients = allData[visitTimes[indexPath.section]] else { return }
-            let client = clients[indexPath.row]
+            guard let client = getClientBy(indexPath: indexPath) else { return }
             
             StorageManager.delete(client)
             let section = IndexSet(integer: indexPath.section)

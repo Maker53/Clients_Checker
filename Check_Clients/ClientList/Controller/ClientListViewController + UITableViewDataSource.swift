@@ -27,11 +27,7 @@ extension ClientListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ClientCell.identifier, for: indexPath)
         guard let cell = cell as? ClientCell else { return cell }
         
-        guard let allData = getData().allData else { return cell }
-        guard let visitTimes = getData().visitTimes else { return cell }
-        
-        guard let clients = allData[visitTimes[indexPath.section]] else { return cell }
-        let client = clients[indexPath.row]
+        guard let client = getClientBy(indexPath: indexPath) else { return cell }
                 
         cell.doneTapAction = { tapLocation in
             DispatchQueue.main.async {
