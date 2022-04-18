@@ -6,6 +6,7 @@
 //
 
 import RealmSwift
+import Foundation
 
 class ClientListViewController: UIViewController {
     
@@ -29,5 +30,15 @@ class ClientListViewController: UIViewController {
     
     func getData() -> DisplayData {
         ClientListDisplayDataParser.shared.getData(from: clients)
+    }
+    
+    func getClientBy(indexPath: IndexPath) -> Client? {
+        guard let allData = getData().allData else { return nil }
+        guard let visitTimes = getData().visitTimes else { return nil }
+        
+        guard let clients = allData[visitTimes[indexPath.section]] else { return nil }
+        let client = clients[indexPath.row]
+        
+        return client
     }
 }
