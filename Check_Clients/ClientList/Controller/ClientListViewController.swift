@@ -26,10 +26,10 @@ class ClientListViewController: UIViewController {
         
         setupUI()
         clients = realm.objects(Client.self)
+        newClientViewController.delegate = self
     }
     
     @objc func addClientButtonTapped() {
-        newClientViewController.delegate = self
         present(newClientNavigationController, animated: true)
     }
     
