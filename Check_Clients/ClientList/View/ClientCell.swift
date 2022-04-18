@@ -43,7 +43,6 @@ class ClientCell: UITableViewCell {
     
     func configure(with client: Client) {
         let displayData = ClientListDisplayDataParser.shared.getDisplayData(from: client)
-        
         clientNameLabel.text = displayData.clientName
         locationLabel.text = displayData.location
         visitTimeLabel.text = displayData.visitTime

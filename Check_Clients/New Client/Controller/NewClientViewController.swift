@@ -44,9 +44,11 @@ class NewClientViewController: UIViewController {
             location: locationTF.text!,
             visitTime: visitTimeDatePicker.date
         )
-        // TODO: Use GCD or Operation with activity indicator 
-        StorageManager.save(newClient)
-        delegate.reloadClientList()
+        // TODO: Use GCD or Operation with activity indicator
+        DispatchQueue.main.async {
+            StorageManager.save(self.newClient)
+            self.delegate.reloadClientList()
+        }
         dismiss(animated: true)
     }
     

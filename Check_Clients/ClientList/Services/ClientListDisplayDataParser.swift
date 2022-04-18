@@ -5,7 +5,7 @@
 //  Created by Станислав on 17.04.2022.
 //
 
-import Foundation
+import RealmSwift
 
 class ClientListDisplayDataParser {
     static let shared = ClientListDisplayDataParser()
@@ -14,16 +14,33 @@ class ClientListDisplayDataParser {
         let dateFormatter = DateFormatter()
         
         dateFormatter.locale = Locale(identifier: "ru_RU")
-        dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         
         return dateFormatter
     }()
     
     private init() {}
     
+    func getData(from clients: Results<Client>!) -> DisplayData {
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd MMM")
+        
+        let sortedData = clients.sorted(by: { $0.visitTime < $1.visitTime })
+        let data: [String: [Client]] = sortedData.reduce(into: [:]) { partialResult, client in
+            guard let _ = partialResult[dateFormatter.string(from: client.visitTime)] else {
+                partialResult[dateFormatter.string(from: client.visitTime)] = [client]
+                return
+            }
+            partialResult[dateFormatter.string(from: client.visitTime)]! += [client]
+        }
+        
+        let sortedVisitTimes = data.keys.sorted()
+        
+        return DisplayData(allData: data, visitTimes: sortedVisitTimes)
+    }
+    
     func getDisplayData(from client: Client) -> DisplayData {
         var isDone = ""
         
+        dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         let time = dateFormatter.string(from: client.visitTime)
         
         if client.isDone {
@@ -43,15 +60,23 @@ class ClientListDisplayDataParser {
 }
 
 class DisplayData {
-    var clientName: String
-    var location: String
-    var visitTime: String
-    var isDone: String
+    var clientName: String?
+    var location: String?
+    var visitTime: String?
+    var isDone: String?
+    
+    var allData: [String: [Client]]?
+    var visitTimes: [String]?
     
     init(clientName: String, location: String, visitTime: String, isDone: String) {
         self.clientName = clientName
         self.location = location
         self.visitTime = visitTime
         self.isDone = isDone
+    }
+    
+    init(allData: [String: [Client]], visitTimes: [String]) {
+        self.allData = allData
+        self.visitTimes = visitTimes
     }
 }

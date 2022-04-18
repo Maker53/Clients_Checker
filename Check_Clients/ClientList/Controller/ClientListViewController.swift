@@ -26,4 +26,8 @@ class ClientListViewController: UIViewController {
         newClientVC.delegate = self
         present(navigationVC, animated: true)
     }
+    
+    func getData() -> DisplayData {
+        ClientListDisplayDataParser.shared.getData(from: clients)
+    }
 }

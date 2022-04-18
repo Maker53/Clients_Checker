@@ -13,7 +13,7 @@
 		858D3904280806F900A70D26 /* NewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D3903280806F900A70D26 /* NewClientViewController.swift */; };
 		858D3907280808C600A70D26 /* SetupNewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D3906280808C600A70D26 /* SetupNewClientViewController.swift */; };
 		858D3909280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D3908280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift */; };
-		858D390B2808434D00A70D26 /* ClientListViewController + NewClientViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D390A2808434D00A70D26 /* ClientListViewController + NewClientViewControllerDelegate.swift */; };
+		858D390B2808434D00A70D26 /* ClientListViewController + ReloadClientListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D390A2808434D00A70D26 /* ClientListViewController + ReloadClientListDelegate.swift */; };
 		85ACCB4F280A85CD00E5E746 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACCB4E280A85CD00E5E746 /* StorageManager.swift */; };
 		85ACCB54280BECB900E5E746 /* ClientListDisplayDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACCB53280BECB900E5E746 /* ClientListDisplayDataParser.swift */; };
 		85D63D2F2806F99B00576407 /* SetupClientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D63D2E2806F99B00576407 /* SetupClientListViewController.swift */; };
@@ -32,7 +32,7 @@
 		858D3903280806F900A70D26 /* NewClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClientViewController.swift; sourceTree = "<group>"; };
 		858D3906280808C600A70D26 /* SetupNewClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNewClientViewController.swift; sourceTree = "<group>"; };
 		858D3908280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewClientViewController + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
-		858D390A2808434D00A70D26 /* ClientListViewController + NewClientViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + NewClientViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		858D390A2808434D00A70D26 /* ClientListViewController + ReloadClientListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + ReloadClientListDelegate.swift"; sourceTree = "<group>"; };
 		85ACCB4B280A82D300E5E746 /* Check_Clients.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Check_Clients.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85ACCB4E280A85CD00E5E746 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		85ACCB53280BECB900E5E746 /* ClientListDisplayDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientListDisplayDataParser.swift; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 				85D63D2E2806F99B00576407 /* SetupClientListViewController.swift */,
 				85D63D30280723B200576407 /* ClientListViewController + UITableViewDataSource.swift */,
 				85D63D32280723C300576407 /* ClientListViewController + UITableViewDelegate.swift */,
-				858D390A2808434D00A70D26 /* ClientListViewController + NewClientViewControllerDelegate.swift */,
+				858D390A2808434D00A70D26 /* ClientListViewController + ReloadClientListDelegate.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -346,7 +346,7 @@
 			files = (
 				858D3904280806F900A70D26 /* NewClientViewController.swift in Sources */,
 				85D63D2F2806F99B00576407 /* SetupClientListViewController.swift in Sources */,
-				858D390B2808434D00A70D26 /* ClientListViewController + NewClientViewControllerDelegate.swift in Sources */,
+				858D390B2808434D00A70D26 /* ClientListViewController + ReloadClientListDelegate.swift in Sources */,
 				85ACCB4F280A85CD00E5E746 /* StorageManager.swift in Sources */,
 				858D39002807F56000A70D26 /* Client.swift in Sources */,
 				858D3909280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift in Sources */,
