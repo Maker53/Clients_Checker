@@ -12,8 +12,8 @@ extension ClientListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let section = IndexSet(integer: indexPath.section)
-            guard let allData = getData().allData else { return }
-            guard let visitTimes = getData().visitTimes else { return }
+            guard let allData = getData(from: clients).allData else { return }
+            guard let visitTimes = getData(from: clients).visitTimes else { return }
             let clientsInDay = allData[visitTimes[indexPath.section]]
             guard let client = clientsInDay?[indexPath.row] else { return }
             StorageManager.delete(client)
@@ -28,7 +28,7 @@ extension ClientListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        guard let client = getClientBy(indexPath: indexPath) else { return }
+        guard let client = getClientBy(from: clients, indexPath: indexPath) else { return }
         
         let newClientViewController = NewClientViewController()
         let newClientNavigationController =  UINavigationController(

@@ -37,7 +37,11 @@ class ClientListDisplayDataParser {
         return DisplayData(allData: data, visitTimes: sortedVisitTimes)
     }
     
-    func getDisplayData(from client: Client) -> DisplayData {
+    func getDisplayData(from client: Client?) -> DisplayData {
+        guard let client = client else {
+            return DisplayData(clientName: "", location: "", visitTime: "", isDone: "")
+        }
+
         var isDone = ""
         
         dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")

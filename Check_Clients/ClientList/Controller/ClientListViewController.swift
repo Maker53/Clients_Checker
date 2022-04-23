@@ -6,15 +6,34 @@
 //
 
 import RealmSwift
+import UIKit
 
 class ClientListViewController: UIViewController {
     
     // MARK: - Public Properties
     lazy var tableView = UITableView(frame: .zero, style: .plain)
+    let searchController = UISearchController(searchResultsController: nil)
     var clients: Results<Client>!
+    var filteredClients: Results<Client>!
+    var isFiltering: Bool {
+        searchController.isActive && !searchBarIsEmpty
+    }
+    
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup the search controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
         
         setupUI()
         clients = realm.objects(Client.self)
@@ -30,17 +49,30 @@ class ClientListViewController: UIViewController {
         present(newClientNavigationController, animated: true)
     }
     
-    func getData() -> DisplayData {
-        ClientListDisplayDataParser.shared.getData(from: clients)
+    func getData(from clientList: Results<Client>!) -> DisplayData {
+        ClientListDisplayDataParser.shared.getData(from: clientList)
     }
     
-    func getClientBy(indexPath: IndexPath) -> Client? {
-        guard let allData = getData().allData else { return nil }
-        guard let visitTimes = getData().visitTimes else { return nil }
+    func getClientBy(from clientList: Results<Client>!, indexPath: IndexPath) -> Client? {
+        guard let allData = getData(from: clientList).allData else { return nil }
+        guard let visitTimes = getData(from: clientList).visitTimes else { return nil }
         
         guard let clients = allData[visitTimes[indexPath.section]] else { return nil }
         let client = clients[indexPath.row]
         
         return client
+    }
+}
+
+extension ClientListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        filteredClients = clients.filter(
+            "clientName CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
+        
+        tableView.reloadData()
     }
 }

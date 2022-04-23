@@ -41,7 +41,7 @@ class ClientCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with client: Client) {
+    func configure(with client: Client?) {
         let displayData = ClientListDisplayDataParser.shared.getDisplayData(from: client)
         clientNameLabel.text = displayData.clientName
         locationLabel.text = displayData.location
