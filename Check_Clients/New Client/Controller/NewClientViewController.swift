@@ -46,10 +46,20 @@ class NewClientViewController: UIViewController {
             location: locationTF.text!,
             visitTime: visitTimeDatePicker.date
         )
-        // TODO: Use GCD or Operation with activity indicator
-        DispatchQueue.main.async {
-            StorageManager.save(self.newClient)
-            self.delegate.reloadClientList()
+        
+        if currentClient != nil {
+            try! realm.write {
+                currentClient?.clientName = newClient.clientName
+                currentClient?.location = newClient.location
+                currentClient?.visitTime = newClient.visitTime
+                self.delegate.reloadClientList()
+            }
+        } else {
+            // TODO: Use GCD or Operation with activity indicator
+            DispatchQueue.main.async {
+                StorageManager.save(self.newClient)
+                self.delegate.reloadClientList()
+            }
         }
         dismiss(animated: true)
     }

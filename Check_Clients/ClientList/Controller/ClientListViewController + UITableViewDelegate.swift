@@ -16,7 +16,6 @@ extension ClientListViewController: UITableViewDelegate {
             guard let visitTimes = getData().visitTimes else { return }
             let clientsInDay = allData[visitTimes[indexPath.section]]
             guard let client = clientsInDay?[indexPath.row] else { return }
-            
             StorageManager.delete(client)
             
             if clientsInDay?.count == 1 {
