@@ -53,5 +53,6 @@ extension ClientListViewController: UITableViewDelegate {
         newClientViewController.currentClient = client
         
         present(newClientNavigationController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
