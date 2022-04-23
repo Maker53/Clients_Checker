@@ -63,16 +63,3 @@ class ClientListViewController: UIViewController {
         return client
     }
 }
-
-extension ClientListViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
-    }
-    
-    private func filterContentForSearchText(_ searchText: String) {
-        filteredClients = clients.filter(
-            "clientName CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
-        
-        tableView.reloadData()
-    }
-}

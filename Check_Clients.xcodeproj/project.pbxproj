@@ -23,6 +23,7 @@
 		85DE0C212806F1590030A77F /* ClientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE0C202806F1590030A77F /* ClientListViewController.swift */; };
 		85DE0C262806F15E0030A77F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85DE0C252806F15E0030A77F /* Assets.xcassets */; };
 		85DE0C292806F15E0030A77F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DE0C272806F15E0030A77F /* LaunchScreen.storyboard */; };
+		85E2266B28145E7A003C65A7 /* ClientListViewController + UISearchResultsUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2266A28145E7A003C65A7 /* ClientListViewController + UISearchResultsUpdating.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		85DE0C252806F15E0030A77F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85DE0C282806F15E0030A77F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85DE0C2A2806F15E0030A77F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85E2266A28145E7A003C65A7 /* ClientListViewController + UISearchResultsUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientListViewController + UISearchResultsUpdating.swift"; sourceTree = "<group>"; };
 		BA0D0E15A99512278B9A0578 /* Pods-Check_Clients.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check_Clients.debug.xcconfig"; path = "Target Support Files/Pods-Check_Clients/Pods-Check_Clients.debug.xcconfig"; sourceTree = "<group>"; };
 		EBFBC032C70742969D309E78 /* Pods_Check_Clients.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Check_Clients.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -206,6 +208,7 @@
 				85D63D30280723B200576407 /* ClientListViewController + UITableViewDataSource.swift */,
 				85D63D32280723C300576407 /* ClientListViewController + UITableViewDelegate.swift */,
 				858D390A2808434D00A70D26 /* ClientListViewController + ReloadClientListDelegate.swift */,
+				85E2266A28145E7A003C65A7 /* ClientListViewController + UISearchResultsUpdating.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				85ACCB4F280A85CD00E5E746 /* StorageManager.swift in Sources */,
 				858D39002807F56000A70D26 /* Client.swift in Sources */,
 				858D3909280810B100A70D26 /* NewClientViewController + UITextFieldDelegate.swift in Sources */,
+				85E2266B28145E7A003C65A7 /* ClientListViewController + UISearchResultsUpdating.swift in Sources */,
 				85ACCB54280BECB900E5E746 /* ClientListDisplayDataParser.swift in Sources */,
 				85DE0C212806F1590030A77F /* ClientListViewController.swift in Sources */,
 				858D38FD28073FDD00A70D26 /* ClientCell.swift in Sources */,
