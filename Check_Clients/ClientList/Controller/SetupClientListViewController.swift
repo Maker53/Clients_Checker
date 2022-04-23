@@ -20,6 +20,7 @@ extension ClientListViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.contentInset = UIEdgeInsets(top: -22, left: 0, bottom: 0, right: 0)
         
         // TODO: Когда буду наводить красоту, не забыть подобрать размер ячейки и выставить
         // TODO: estimatedRowHeight равный высоте ячейки
