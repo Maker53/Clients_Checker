@@ -11,13 +11,6 @@ import Foundation
 class ClientListViewController: UIViewController {
     
     // MARK: - Public Properties
-    lazy var newClientViewController = NewClientViewController()
-    lazy var newClientNavigationController: UINavigationController = {
-        let navigationController = UINavigationController(
-            rootViewController: newClientViewController)
-        
-        return navigationController
-    }()
     lazy var tableView = UITableView(frame: .zero, style: .plain)
     var clients: Results<Client>!
 
@@ -26,10 +19,15 @@ class ClientListViewController: UIViewController {
         
         setupUI()
         clients = realm.objects(Client.self)
-        newClientViewController.delegate = self
     }
     
     @objc func addClientButtonTapped() {
+        let newClientViewController = NewClientViewController()
+        let newClientNavigationController =  UINavigationController(
+            rootViewController: newClientViewController)
+        
+        newClientViewController.delegate = self
+        
         present(newClientNavigationController, animated: true)
     }
     

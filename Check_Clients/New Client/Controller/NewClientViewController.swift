@@ -18,13 +18,15 @@ class NewClientViewController: UIViewController {
     
     // MARK: - Public Properties
     var newClient: Client!
+    var currentClient: Client?
     weak var delegate: ReloadClientListDelegate!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()        
+        setupUI()
+        setupEditScreen()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -65,5 +67,19 @@ class NewClientViewController: UIViewController {
         }
         
         saveBarButton.isEnabled = true
+    }
+}
+
+// MARK: - Private Methods
+extension NewClientViewController {
+    private func setupEditScreen() {
+        if let currentClient = currentClient {
+            clientNameTF.text = currentClient.clientName
+            locationTF.text = currentClient.location
+            visitTimeDatePicker.date = currentClient.visitTime
+            saveBarButton.isEnabled = true
+        }
+        
+        title = currentClient?.clientName
     }
 }

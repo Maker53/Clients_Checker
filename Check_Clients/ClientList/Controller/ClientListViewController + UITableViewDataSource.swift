@@ -19,7 +19,6 @@ extension ClientListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let allData = getData().allData
         let visitTimes = getData().visitTimes
-        
         return allData?[visitTimes?[section] ?? ""]?.count ?? 0
     }
     
