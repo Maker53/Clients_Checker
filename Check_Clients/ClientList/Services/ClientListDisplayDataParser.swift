@@ -27,7 +27,6 @@ class ClientListDisplayDataParser {
     func getGroupedClients(from clients: Results<Client>!) -> [(String, [Client])] {
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-MM-YY")
         
-        // TODO: Узнать как правильно документировать код и поправить свои пометки
         // Сперва, сортируем список клиентов по времени по возрастанию.
         let sortedClientList = clients.sorted { $0.visitTime < $1.visitTime }
         
