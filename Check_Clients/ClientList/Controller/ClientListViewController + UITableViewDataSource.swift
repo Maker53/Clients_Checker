@@ -43,7 +43,7 @@ extension ClientListViewController: UITableViewDataSource {
         } else {
             client = getClient(from: clients, indexPath: indexPath)
         }
-                
+        
         cell.doneTapAction = { tapLocation in
             DispatchQueue.main.async {
                 try! realm.write {

@@ -11,8 +11,6 @@ protocol ReloadClientListDelegate: AnyObject {
 
 extension ClientListViewController: ReloadClientListDelegate {
     func reloadClientList() {
-        // TODO: Заменит на метод, который обновляет по индексу добавленной ячейки,
-        // TODO: если такое возможно
         tableView.reloadData()
     }
 }
