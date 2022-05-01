@@ -10,29 +10,25 @@ import UIKit
 extension ClientListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         if isFiltering {
-            return getData(from: filteredClients).visitTimes?.count ?? 0
+            return getSortedClients(from: filteredClients).count
         } else {
-            return getData(from: clients).visitTimes?.count ?? 0
+            return getSortedClients(from: clients).count
         }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if isFiltering {
-            return getData(from: filteredClients).visitTimes?[section]
+            return getSortedClients(from: filteredClients)[section].date
         } else {
-            return getData(from: clients).visitTimes?[section]
+            return getSortedClients(from: clients)[section].date
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
-            let allData = getData(from: filteredClients).allData
-            let visitTimes = getData(from: filteredClients).visitTimes
-            return allData?[visitTimes?[section] ?? ""]?.count ?? 0
+            return getSortedClients(from: filteredClients)[section].clients.count
         } else {
-            let allData = getData(from: clients).allData
-            let visitTimes = getData(from: clients).visitTimes
-            return allData?[visitTimes?[section] ?? ""]?.count ?? 0
+            return getSortedClients(from: clients)[section].clients.count
         }
     }
     
@@ -40,19 +36,18 @@ extension ClientListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ClientCell.identifier, for: indexPath)
         guard let cell = cell as? ClientCell else { return cell }
         
-        var client: Client?
+        var client: Client
         
         if isFiltering {
-            client = getClientBy(from: filteredClients, indexPath: indexPath)
+            client = getClient(from: filteredClients, indexPath: indexPath)
         } else {
-            client = getClientBy(from: clients, indexPath: indexPath)
+            client = getClient(from: clients, indexPath: indexPath)
         }
-        
                 
         cell.doneTapAction = { tapLocation in
             DispatchQueue.main.async {
                 try! realm.write {
-                    client?.isDone.toggle()
+                    client.isDone.toggle()
                     tableView.reloadRows(at: [indexPath], with: .automatic)
                 }
             }

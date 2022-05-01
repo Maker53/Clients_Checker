@@ -20,29 +20,36 @@ class ClientListDisplayDataParser {
     
     private init() {}
     
-    func getData(from clients: Results<Client>!) -> DisplayData {
-        dateFormatter.setLocalizedDateFormatFromTemplate("dd MMM")
+    func getGroupedClients(from clients: Results<Client>!) -> [(String, [Client])] {
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd-MM-YY")
         
-        let sortedData = clients.sorted(by: { $0.visitTime < $1.visitTime })
-        let data: [String: [Client]] = sortedData.reduce(into: [:]) { partialResult, client in
-            guard let _ = partialResult[dateFormatter.string(from: client.visitTime)] else {
-                partialResult[dateFormatter.string(from: client.visitTime)] = [client]
-                return
-            }
-            partialResult[dateFormatter.string(from: client.visitTime)]! += [client]
-        }
+        // TODO: Узнать как правильно документировать код и поправить свои пометки
+        // Сперва, сортируем список клиентов по времени по возрастанию.
+        let sortedClientList = clients.sorted { $0.visitTime < $1.visitTime }
         
-        let sortedVisitTimes = data.keys.sorted()
+        // Затем, группируем отсортированный массив клиентов по дате, чтобы получился словарь,
+        // в котором на конкретный день будет массив клиентов (уже отсортированных по времени
+        // по возрастанию). Форматтер используется для того, чтобы была возможность
+        // сгруппировать именно по дням, так как Date группирует в зависимости от минут.
+        let groupedClientList = Dictionary(grouping: sortedClientList) { dateFormatter.string(from: $0.visitTime) }
         
-        return DisplayData(allData: data, visitTimes: sortedVisitTimes)
+        // Нужно преобразовать словарь в упорядоченную коллекцию. Используем для этого
+        // массив кортежей.
+        let clientList = groupedClientList
+        // Группируем кортеж по дате, чтобы в дальнейшем была возможность отсортировать массив.
+        // Так как в массиве клиентов все клиенты от одной даты, то нам не важно конкретное время
+        // для группировки по дням, поэтому берем первый элемент массива клиентов для простоты.
+            .map { ($0.value[0].visitTime, $0.value) }
+        // Сортируем список клиентов по дням.
+            .sorted { $0.0 < $1.0 }
+        // Форматируем дату.
+            .map { (dateFormatter.string(from: $0.0), $0.1) }
+        
+        return clientList
     }
     
-    func getDisplayData(from client: Client?) -> DisplayData {
-        guard let client = client else {
-            return DisplayData(clientName: "", location: "", visitTime: "", isDone: "")
-        }
-
-        var isDone = ""
+    func getDisplayDataForCell(from client: Client) -> DisplayData {
+        var isDone: String
         
         dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         let time = dateFormatter.string(from: client.visitTime)
@@ -64,23 +71,15 @@ class ClientListDisplayDataParser {
 }
 
 class DisplayData {
-    var clientName: String?
-    var location: String?
-    var visitTime: String?
-    var isDone: String?
-    
-    var allData: [String: [Client]]?
-    var visitTimes: [String]?
+    var clientName: String
+    var location: String
+    var visitTime: String
+    var isDone: String
     
     init(clientName: String, location: String, visitTime: String, isDone: String) {
         self.clientName = clientName
         self.location = location
         self.visitTime = visitTime
         self.isDone = isDone
-    }
-    
-    init(allData: [String: [Client]], visitTimes: [String]) {
-        self.allData = allData
-        self.visitTimes = visitTimes
     }
 }

@@ -8,26 +8,23 @@
 import UIKit
 
 extension ClientListViewController: UITableViewDelegate {
-    // TODO: Вызывать в методах UITableViewDelegate подготовленные данные из parser
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let section = IndexSet(integer: indexPath.section)
-            var allData: [String : [Client]]
-            var visitTimes: [String]
+            let client: Client
+            let clientsInDay: Int
             
             if isFiltering {
-                allData = getData(from: filteredClients).allData ?? [:]
-                visitTimes = getData(from: filteredClients).visitTimes ?? []
+                client = getClient(from: filteredClients, indexPath: indexPath)
+                clientsInDay = getSortedClients(from: filteredClients)[indexPath.section].clients.count
             } else {
-                allData = getData(from: clients).allData ?? [:]
-                visitTimes = getData(from: clients).visitTimes ?? []
+                client = getClient(from: clients, indexPath: indexPath)
+                clientsInDay = getSortedClients(from: clients)[indexPath.section].clients.count
             }
             
-            let clientsInDay = allData[visitTimes[indexPath.section]]
-            guard let client = clientsInDay?[indexPath.row] else { return }
             StorageManager.delete(client)
             
-            if clientsInDay?.count == 1 {
+            if clientsInDay == 1 {
                 tableView.deleteSections(section, with: .automatic)
             } else {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -37,12 +34,12 @@ extension ClientListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        var client: Client?
+        var client: Client
         
         if isFiltering {
-            client = getClientBy(from: filteredClients, indexPath: indexPath)
+            client = getClient(from: filteredClients, indexPath: indexPath)
         } else {
-            client = getClientBy(from: clients, indexPath: indexPath)
+            client = getClient(from: clients, indexPath: indexPath)
         }
         
         let newClientViewController = NewClientViewController()

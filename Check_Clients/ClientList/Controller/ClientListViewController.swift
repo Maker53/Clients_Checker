@@ -28,7 +28,7 @@ class ClientListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setup the search controller
+        // TODO: Вынести в отдельную функцию Setup search controller
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
@@ -49,16 +49,13 @@ class ClientListViewController: UIViewController {
         present(newClientNavigationController, animated: true)
     }
     
-    func getData(from clientList: Results<Client>!) -> DisplayData {
-        ClientListDisplayDataParser.shared.getData(from: clientList)
+    func getSortedClients(from clientList: Results<Client>!) -> [(date: String, clients: [Client])] {
+        ClientListDisplayDataParser.shared.getGroupedClients(from: clientList)
     }
     
-    func getClientBy(from clientList: Results<Client>!, indexPath: IndexPath) -> Client? {
-        guard let allData = getData(from: clientList).allData else { return nil }
-        guard let visitTimes = getData(from: clientList).visitTimes else { return nil }
-        
-        guard let clients = allData[visitTimes[indexPath.section]] else { return nil }
-        let client = clients[indexPath.row]
+    func getClient(from clientList: Results<Client>!, indexPath: IndexPath) -> Client {
+        let sortedClients = getSortedClients(from: clientList)
+        let client = sortedClients[indexPath.section].clients[indexPath.row]
         
         return client
     }
