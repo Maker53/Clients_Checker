@@ -24,16 +24,15 @@ class ClientCell: UITableViewCell {
     
     // MARK: - Public Properties
     static let identifier = String(describing: ClientCell.self)
-    var doneTapAction: ((CGPoint) -> Void)?
+    lazy var doneTapAction: ((CGPoint) -> Void) = { _ in }
     
     // MARK: - Private Properties
     private lazy var tap = UITapGestureRecognizer(target: self, action: #selector(doneAction))
     
+    // MARK: - Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        // TODO: Как бы от этого избавиться?
-        doneTapAction?(.zero)
         setupClientCell()
     }
     
@@ -41,17 +40,20 @@ class ClientCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Configure the cell method
     func configure(with client: Client) {
         let displayData = ClientListDisplayDataParser.shared.getDisplayDataForCell(from: client)
+        
         clientNameLabel.text = displayData.clientName
         locationLabel.text = displayData.location
         visitTimeLabel.text = displayData.visitTime
         checkMarkLabel.text = displayData.isDone
     }
     
+    // MARK: - Private @objc action for checkMark label
     @objc private func doneAction() {
         let tapLocation = tap.location(in: checkMarkLabel)
-        doneTapAction?(tapLocation)
+        doneTapAction(tapLocation)
     }
 }
 
