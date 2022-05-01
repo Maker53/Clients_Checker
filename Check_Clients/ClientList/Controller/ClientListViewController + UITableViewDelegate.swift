@@ -50,6 +50,7 @@ extension ClientListViewController: UITableViewDelegate {
         
         newClientViewController.delegate = self
         newClientViewController.currentClient = client
+        newClientViewController.setupEditScreen()
         
         present(newClientNavigationController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)

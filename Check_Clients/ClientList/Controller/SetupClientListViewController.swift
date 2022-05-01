@@ -9,12 +9,12 @@ import UIKit
 
 extension ClientListViewController {
     func setupUI() {
-        title = "Client list"
+        title = "Список клиентов"
         
         // Setup search controller
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = "Поиск"
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
@@ -27,7 +27,6 @@ extension ClientListViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.contentInset = UIEdgeInsets(top: -22, left: 0, bottom: 0, right: 0)
         
         // TODO: Когда буду наводить красоту, не забыть подобрать размер ячейки и выставить
         // estimatedRowHeight равный высоте ячейки

@@ -22,12 +22,22 @@ extension NewClientViewController {
         )
         saveBarButton.isEnabled = false
         
-        title = "New Client"
+        title = "Новый клиент"
         view.backgroundColor = .systemBackground
         navigationItem.leftBarButtonItem = cancelBarButton
         navigationItem.rightBarButtonItem = saveBarButton
         
         setupTextFields()
+    }
+    
+    func setupEditScreen() {
+        if let currentClient = currentClient {
+            clientNameTF.text = currentClient.clientName
+            locationTF.text = currentClient.location
+            visitTimeDatePicker.date = currentClient.visitTime
+            saveBarButton.isEnabled = true
+            title = currentClient.clientName
+        }
     }
     
     private func setupTextFields() {
@@ -39,18 +49,24 @@ extension NewClientViewController {
         stackView.spacing = 25
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        clientNameTF.placeholder = "Client name"
+        clientNameTF.placeholder = "Имя клиента"
+        clientNameTF.clearButtonMode = .whileEditing
+        clientNameTF.autocapitalizationType = .words
+        clientNameTF.autocorrectionType = .no
         clientNameTF.borderStyle = .roundedRect
         clientNameTF.returnKeyType = .next
         clientNameTF.delegate = self
         
-        locationTF.placeholder = "Location"
+        locationTF.placeholder = "Место приема"
+        locationTF.clearButtonMode = .whileEditing
+        locationTF.autocorrectionType = .no
         locationTF.borderStyle = .roundedRect
-        locationTF.returnKeyType = .next
+        locationTF.returnKeyType = .done
         locationTF.delegate = self
         
         visitTimeDatePicker.locale = Locale(identifier: "Ru_ru")
         visitTimeDatePicker.datePickerMode = .dateAndTime
+        visitTimeDatePicker.minuteInterval = 10
         visitTimeDatePicker.contentHorizontalAlignment = .left
         visitTimeDatePicker.translatesAutoresizingMaskIntoConstraints = false
         
