@@ -17,11 +17,21 @@ extension ClientListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let currentDate = dateFormatter.string(from: Date())
+        let sectionHeader: String
+        
         if isFiltering {
-            return getSortedClients(from: filteredClients)[section].date
+            sectionHeader = getSortedClients(from: filteredClients)[section].date
         } else {
-            return getSortedClients(from: clients)[section].date
+            sectionHeader = getSortedClients(from: clients)[section].date
         }
+        
+        if currentDate == sectionHeader, sectionForScroll == nil {
+            sectionForScroll = section
+            scrollToCurrentDate()
+        }
+
+        return sectionHeader
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
