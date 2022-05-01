@@ -48,14 +48,15 @@ class NewClientViewController: UIViewController {
         )
         
         if currentClient != nil {
-            try! realm.write {
-                currentClient?.clientName = newClient.clientName
-                currentClient?.location = newClient.location
-                currentClient?.visitTime = newClient.visitTime
-                self.delegate.reloadClientList()
+            DispatchQueue.main.async {
+                try! realm.write {
+                    self.currentClient?.clientName = self.newClient.clientName
+                    self.currentClient?.location = self.newClient.location
+                    self.currentClient?.visitTime = self.newClient.visitTime
+                    self.delegate.reloadClientList()
+                }
             }
         } else {
-            // TODO: Use GCD or Operation with activity indicator
             DispatchQueue.main.async {
                 StorageManager.save(self.newClient)
                 self.delegate.reloadClientList()
