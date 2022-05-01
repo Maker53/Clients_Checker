@@ -8,8 +8,10 @@
 import RealmSwift
 
 class ClientListDisplayDataParser {
+    // MARK: - Public Property
     static let shared = ClientListDisplayDataParser()
     
+    // MARK: - Private Properties
     private lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         
@@ -18,8 +20,10 @@ class ClientListDisplayDataParser {
         return dateFormatter
     }()
     
+    // MARK: - Private Initializer
     private init() {}
     
+    // MARK: - Public Methods
     func getGroupedClients(from clients: Results<Client>!) -> [(String, [Client])] {
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-MM-YY")
         
@@ -70,6 +74,7 @@ class ClientListDisplayDataParser {
     }
 }
 
+// MARK: - Display Data Class
 class DisplayData {
     var clientName: String
     var location: String
