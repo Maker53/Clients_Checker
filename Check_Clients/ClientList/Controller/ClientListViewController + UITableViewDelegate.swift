@@ -22,13 +22,15 @@ extension ClientListViewController: UITableViewDelegate {
                 clientsInDay = getSortedClients(from: clients)[indexPath.section].clients.count
             }
             
-            StorageManager.delete(client)
-            
-            if clientsInDay == 1 {
-                tableView.deleteSections(section, with: .automatic)
-            } else {
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-            }
+            DispatchQueue.main.async {
+                StorageManager.delete(client)
+                
+                if clientsInDay == 1 {
+                    tableView.deleteSections(section, with: .automatic)
+                } else {
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+            }            
         }
     }
     
