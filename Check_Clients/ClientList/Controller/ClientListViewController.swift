@@ -28,6 +28,8 @@ class ClientListViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        // TODO: Не будет ли тут проблем с чтением из базы, когда база будет огромной
+        // мб стоит использовать многопоточку
         clients = realm.objects(Client.self)
     }
     

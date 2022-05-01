@@ -30,7 +30,7 @@ extension ClientListViewController {
         tableView.contentInset = UIEdgeInsets(top: -22, left: 0, bottom: 0, right: 0)
         
         // TODO: Когда буду наводить красоту, не забыть подобрать размер ячейки и выставить
-        // TODO: estimatedRowHeight равный высоте ячейки
+        // estimatedRowHeight равный высоте ячейки
         tableView.rowHeight = 50
         tableView.estimatedRowHeight = 50
         
