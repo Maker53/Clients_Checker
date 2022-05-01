@@ -23,17 +23,9 @@ class ClientListViewController: UIViewController {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // TODO: Вынести в отдельную функцию Setup search controller
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
         
         setupUI()
         clients = realm.objects(Client.self)
