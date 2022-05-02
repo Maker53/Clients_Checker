@@ -24,7 +24,12 @@ class ClientListDisplayDataParser {
     private init() {}
     
     // MARK: - Public Methods
-    func getGroupedClients(from clients: Results<Client>!) -> [(String, [Client])] {
+    // Приходится возвращать массив не со стринговыми датами, а с типом Date, так как
+    // невозможно сравнить стринговые даты между собой по тому, какая дата идет раньше,
+    // а какая позже. Сравнение необходимо для возможности проскролить таблицу при
+    // появлении вьюхи до текущей даты или даты, ближайшей к текущей в положительную сторону,
+    // либо, если все даты раньше текущей даты, то к ближайшей дате в отрицательную сторону.
+    func getGroupedClients(from clients: Results<Client>!) -> [(Date, [Client])] {
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-MMM-YY")
         
         // Сперва, сортируем список клиентов по времени по возрастанию.
@@ -45,8 +50,6 @@ class ClientListDisplayDataParser {
             .map { ($0.value[0].visitTime, $0.value) }
         // Сортируем список клиентов по дням.
             .sorted { $0.0 < $1.0 }
-        // Форматируем дату.
-            .map { (dateFormatter.string(from: $0.0), $0.1) }
         
         return clientList
     }
